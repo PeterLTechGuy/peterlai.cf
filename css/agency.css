@@ -6,8 +6,8 @@
 
 /* video bg stuff*/
 .video-background {
-  background: #000;
-  position: fixed;
+  background: #fff;
+  position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
   z-index: -99;
 }
@@ -21,20 +21,78 @@
   pointer-events: none;
 }
 
-@media (min-aspect-ratio: 16/9) {
+@media (min-aspect-ratio: 21/9) {
   .video-foreground { height: 300%; top: -100%; }
 }
-@media (max-aspect-ratio: 16/9) {
+@media (max-aspect-ratio: 21/9) {
   .video-foreground { width: 300%; left: -100%; }
+}
+
+/* blinking cursor */
+.blinking-cursor {
+  font-weight: 100;
+  font-size: 30px;
+  color: #2E3D48;
+  -webkit-animation: 1s blink step-end infinite;
+  -moz-animation: 1s blink step-end infinite;
+  -ms-animation: 1s blink step-end infinite;
+  -o-animation: 1s blink step-end infinite;
+  animation: 1s blink step-end infinite;
+}
+
+@keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: white;
+  }
+}
+
+@-moz-keyframes blink {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: white;
+  }
+}
+
+@-webkit-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: white;
+  }
+}
+
+@-ms-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: white;
+  }
+}
+
+@-o-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: white;
+  }
 }
 
 
 body {
   overflow-x: hidden;
   font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: lightgray;
 }
 .text-muted {
-  color: #777777;
+  color: #666666;
 }
 .text-primary {
   color: #71c48d;
@@ -181,8 +239,13 @@ fieldset[disabled] .btn-xl.active {
 }
 .navbar-custom .navbar-brand {
   color: #71c48d;
-  font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;
+  font-family: "Nunito", "Helvetica Neue", Helvetica, Arial, cursive;
+  font-weight: 100;
 }
+.navbar-custom .navbar-brand b {
+  font-weight: 600;
+}
+
 .navbar-custom .navbar-brand:hover,
 .navbar-custom .navbar-brand:focus,
 .navbar-custom .navbar-brand:active,
@@ -205,9 +268,8 @@ fieldset[disabled] .btn-xl.active {
   background-color: #71c48d;
 }
 .navbar-custom .nav li a {
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
-  font-weight: 400;
+  font-family: "Nunito", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 100;
   letter-spacing: 1px;
   color: white;
 }
@@ -236,26 +298,27 @@ fieldset[disabled] .btn-xl.active {
     border: none;
   }
   .navbar-custom .navbar-brand {
-    font-size: 2em;
+    font-size: 1.9em;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
   }
   .navbar-custom .navbar-nav > .active > a {
-    border-radius: 3px;
+    border-radius: 0px;
   }
 }
 @media (min-width: 768px) {
   .navbar-custom.affix {
-    background-color: #222222;
-    padding: 10px 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 0px 0;
+    box-shadow: 0px 5px 50px rgba(0, 0, 0, 0.4);
   }
   .navbar-custom.affix .navbar-brand {
     font-size: 1.5em;
   }
 }
 header {
-  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1) ), url('../img/banner.jpg');
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1) );
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -278,8 +341,8 @@ header .intro-text .intro-lead-in {
   margin-bottom: 25px;
 }
 header .intro-text .intro-heading {
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 400;
+  font-family: "Nunito", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 100;
   font-size: 25px;
   line-height: 50px;
   margin-bottom: 25px;
@@ -297,11 +360,14 @@ header .intro-text .intro-heading {
     margin-bottom: 25px;
   }
   header .intro-text .intro-heading {
-    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 400;
+    font-family: "Nunito", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 100;
     font-size: 25px;
     line-height: 75px;
     margin-bottom: 50px;
+  }
+  header .intro-text .intro-heading b {
+    font-weight: 700;
   }
 }
 section {
@@ -309,12 +375,14 @@ section {
 }
 section h2.section-heading {
   font-size: 40px;
+  font-family: "Nunito", Arial, sans-serif;
+  font-weight: 100;
   margin-top: 0;
   margin-bottom: 15px;
 }
 section h3.section-subheading {
   font-size: 16px;
-  font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Nunito", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: none;
   font-style: italic;
   font-weight: 400;
@@ -377,13 +445,14 @@ section h3.section-subheading {
   padding: 25px;
 }
 #portfolio .portfolio-item .portfolio-caption h4 {
+  font-family: "Nunito", Arial, sans-serif;
   text-transform: none;
   margin: 0;
 }
 #portfolio .portfolio-item .portfolio-caption p {
-  font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Nunito", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: italic;
-  font-size: 16px;
+  font-size: 14px;
   margin: 0;
 }
 #portfolio * {
