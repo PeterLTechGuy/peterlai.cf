@@ -34,7 +34,7 @@
 */
 
 /* IMAGE LINK OVERLAY */
-.overlay {
+.overlay1 {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -47,11 +47,11 @@
   background-color: #406e6e;
 }
 
-.image.main:hover .overlay {
+.image.main:hover .overlay1 {
   opacity: 0.5;
 }
 
-.text {
+.text1 {
   color: white;
   font-size: 25px;
   position: absolute;
